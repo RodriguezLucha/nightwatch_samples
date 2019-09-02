@@ -8,12 +8,22 @@ this.goToSpecificURLandAssert = function (browser) {
 //Be able to go to specific URL and wait for something to show up after a timeout
 this.goToSpecificURLandWaitForSomething = function (browser) {
   browser
-    .url('http://localhost:3000/')
-    .waitForElementVisible('.slow-loading', 1000)
-    .waitForElementVisible('.slow-loading .cactus', 3500)
-    .assert.containsText('.slow-loading .cactus', 'Cactus!')
-    .end();
+  .url('http://localhost:3000/')
+  .waitForElementVisible('.slow-loading', 1000)
+  .waitForElementVisible('.slow-loading .cactus', 3500)
+  .assert.containsText('.slow-loading .cactus', 'Cactus!')
 };
 //Be able to go to specific URL and click a button
+this.clickAButton = function (browser) {
+  browser
+    .url('http://localhost:3000/')
+    .waitForElementVisible('.addOne', 1000)
+    .click('.addOne')
+    .assert.containsText('.counter-value', '1')
+    .click('.addOne')
+    .assert.containsText('.counter-value', '2')
+    .click('.addOne')
+    .assert.containsText('.counter-value', '3')
+};
 //Be able to go to a form and fill it out
 //Be able to generate random data, and use it to to fill in some form
