@@ -35,3 +35,14 @@ this.clickAButton = function (browser) {
     .assert.containsText('.converted', '7h3 quick br0wn ph0x');
 };
 //Be able to generate random data, and use it to to fill in some form
+const randomFullName = require('random-fullName');
+
+this.clickAButton = function (browser) {
+  browser
+    .url('http://localhost:3000/')
+    .waitForElementVisible('.convert-word', 1000)
+    .setValue('.convert-word .word', randomFullName())
+    .submitForm('.convert-word')
+    .assert.visible('.converted')
+    .saveScreenshot('converted_name.jpg');
+};
