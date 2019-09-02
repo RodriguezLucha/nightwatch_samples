@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-eslint": "^10.0.3",
     "chromedriver": "^76.0.1",
+    "eslint": "^6.3.0",
     "nightwatch": "^1.2.2"
   }
 }
